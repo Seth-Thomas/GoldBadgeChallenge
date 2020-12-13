@@ -8,7 +8,7 @@ namespace Challenge1Repo
 {
     public class Menu_Repo
     {
-        // Create Menu Item
+
         public List<Menu_Content> _listOfMenuItems = new List<Menu_Content>();
 
 
@@ -17,19 +17,15 @@ namespace Challenge1Repo
             _listOfMenuItems.Add(menuItems);
         }
 
-        // Read Menu Items
         public List<Menu_Content> ViewMenuItems()
         {
             return _listOfMenuItems;
         }
 
-        // Update Menu Items
         public bool UpdateMenuItems(string mealName, Menu_Content newMenuItems)
         {
-            // Find menu items
             Menu_Content oldMenuItems = GetMenuItems(mealName);
 
-            // Update Menu Item
             if (oldMenuItems != null)
             {
                 oldMenuItems.MealNumber = newMenuItems.MealNumber;
@@ -45,7 +41,6 @@ namespace Challenge1Repo
             }
         }
 
-        // Delete
         public bool RemoveMenuItems(string mealName)
         {
             Menu_Content menuItems = GetMenuItems(mealName);
@@ -69,10 +64,6 @@ namespace Challenge1Repo
         }
 
 
-
-
-
-        //Helper method
         public Menu_Content GetMenuItems(string mealName)
         {
             foreach (Menu_Content menuItems in _listOfMenuItems)

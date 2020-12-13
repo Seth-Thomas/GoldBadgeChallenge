@@ -10,8 +10,6 @@ namespace Challenge1Tests
         private Menu_Repo _repo;
         private Menu_Content _content;
 
-
-
         [TestInitialize]
 
         public void Arrange()
@@ -64,8 +62,5 @@ namespace Challenge1Tests
 
             Assert.IsTrue(removeResult);
         }
-
-
-
     }
 }

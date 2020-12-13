@@ -91,9 +91,6 @@ namespace Challenge1Console
             {
                 Console.WriteLine($"Meal Number: {menuItems.MealNumber}, Meal Name: {menuItems.MealName}, Meal Description: {menuItems.MealDescription}, List of Ingredients:{menuItems.ListOfIngredients}, Meal Price:{menuItems.MealPrice}\n");
             }
-
-
-
         }
 
         private void UpdateMenuItems()
@@ -131,16 +128,11 @@ namespace Challenge1Console
             {
                 Console.WriteLine("Content was successfully updated.");
 
-
             }
             else
             {
                 Console.WriteLine("Could not updated content.");
             }
-
-
-
-
         }
         private void RemoveMenuItems()
         {
@@ -176,11 +168,6 @@ namespace Challenge1Console
             _Cafe_Repo.AddMenuItems(mealNumThree);
             _Cafe_Repo.AddMenuItems(mealNumFour);
             _Cafe_Repo.AddMenuItems(mealNumFive);
-
-
         }
-
-
-
     }
 }
