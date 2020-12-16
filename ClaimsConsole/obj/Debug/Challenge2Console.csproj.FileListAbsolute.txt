@@ -1,0 +1,2 @@
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\ClaimsConsole\obj\Debug\Challenge2Console.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\ClaimsConsole\obj\Debug\Challenge2Console.csproj.CoreCompileInputs.cache
