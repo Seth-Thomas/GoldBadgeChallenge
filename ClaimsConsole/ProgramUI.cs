@@ -47,6 +47,7 @@ namespace ClaimsConsole
 
         public void Run()
         {
+            SeedClaimsList();
             Menu();
         }
         public void Menu()
@@ -54,8 +55,8 @@ namespace ClaimsConsole
             bool keepRunning = true;
             while (keepRunning)
             {
-                Console.WriteLine("Select an option from the menu:\n" + 
-                    "1. See Next Claim\n" +
+                Console.WriteLine("Select an option from the menu:\n" +
+                    "1. See All Claim\n" +
                     "2. Take Care of Next Claim\n" +
                     "3. Enter a New Claim\n" +
                     "4. Exit");
@@ -65,13 +66,13 @@ namespace ClaimsConsole
                 switch (input)
                 {
                     case "1":
-                        SeeNextClaim();
+                        SeeAllClaims();
                         break;
                     case "2":
-                        TakeCareOfNextClaim();
+                        //TakeCareOfNextClaim();
                         break;
                     case "3":
-                        EnterNewClaim();
+                        //EnterNewClaim();
                         break;
                     case "4":
                         Console.WriteLine("Goodbye");
@@ -86,5 +87,33 @@ namespace ClaimsConsole
             }
 
         }
-    }   
-}   public void 
+        public void SeeAllClaims() // Fix  queue structure
+        {
+            Console.Clear();
+            Queue<ClaimsClass> claimsQueue = _claimsRepo.ViewClaimsQueue();
+            Console.WriteLine($"{"ClaimID",-10}{"Claim Type",-10}{"Description",-10}{"Claim Amount",-10}{"Date of Incidient",-10}{"Date Of Claim",10}{"Claim is Valid"}");
+
+            foreach (ClaimsClass claims in claimsQueue)
+            {
+                Console.WriteLine($"{claims.ClaimId,-10}{claims.ClaimType,10}{claims.ClaimDescription,10}{claims.ClaimAmount,10}{claims.DateOfIncident.ToString("d/M/yy"),-10}{claims.DateOfClaim.ToString("d/M/yy"),-10}{claims.IsValid}");
+            }
+        }
+
+        public void SeedClaimsList()
+        {
+            ClaimsClass claim1 = new ClaimsClass(1, "Car", "Fender bender", 200.00, new DateTime(2020,01,01), new DateTime(2020,02,03), false);
+            ClaimsClass claim2 = new ClaimsClass(2, "Theft", "Stolen necklace", 1500.00, new DateTime(2020,03,13), new DateTime (2020,03,14), true);
+            ClaimsClass claim3 = new ClaimsClass(3, "Home", "Christmas tree fire", 2000.00, new DateTime(2020, 04, 05), new DateTime(2020, 04, 06), true);
+
+            _claimsRepo.AddClaims(claim1);
+            _claimsRepo.AddClaims(claim2);
+            _claimsRepo.AddClaims(claim3);
+
+        
+        }
+
+    }
+
+
+}
+
