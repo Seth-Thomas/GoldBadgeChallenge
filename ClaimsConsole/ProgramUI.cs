@@ -69,10 +69,10 @@ namespace ClaimsConsole
                         SeeAllClaims();
                         break;
                     case "2":
-                        //TakeCareOfNextClaim();
+                        TakeCareOfNextClaim();
                         break;
                     case "3":
-                        //EnterNewClaim();
+                        EnterNewClaim();
                         break;
                     case "4":
                         Console.WriteLine("Goodbye");
@@ -87,17 +87,93 @@ namespace ClaimsConsole
             }
 
         }
-        public void SeeAllClaims() // Fix  queue structure
+        public void SeeAllClaims()
         {
             Console.Clear();
             Queue<ClaimsClass> claimsQueue = _claimsRepo.ViewClaimsQueue();
-            Console.WriteLine($"{"ClaimID",-10}{"Claim Type",-10}{"Description",-10}{"Claim Amount",-10}{"Date of Incidient",-10}{"Date Of Claim",10}{"Claim is Valid"}");
+            Console.WriteLine($"{"ClaimID",-10}{"Claim Type",-15}{"Description",-25}{"Claim Amount",-15}{"Date of Incidient",-20}{"Date Of Claim",-15}{"Claim is Valid"}");
 
             foreach (ClaimsClass claims in claimsQueue)
             {
-                Console.WriteLine($"{claims.ClaimId,-10}{claims.ClaimType,10}{claims.ClaimDescription,10}{claims.ClaimAmount,10}{claims.DateOfIncident.ToString("d/M/yy"),-10}{claims.DateOfClaim.ToString("d/M/yy"),-10}{claims.IsValid}");
+                Console.WriteLine($"{claims.ClaimId,-10}{claims.ClaimType,-15}{claims.ClaimDescription,-25}{claims.ClaimAmount.ToString("C2"),-15}{claims.DateOfIncident.ToString("MM/dd/yy"),-20}{claims.DateOfClaim.ToString("MM/dd/yy"),-15}{claims.IsValid}");
             }
         }
+        public void TakeCareOfNextClaim()
+        {
+            Console.Clear();
+
+            Queue<ClaimsClass> claimsQueue = new Queue<ClaimsClass>();
+            claimsQueue = _claimsRepo.ViewClaimsQueue();
+            ClaimsClass claims = claimsQueue.Peek();
+
+            Console.WriteLine("Here is the next claim\n");
+            Console.WriteLine($"ClaimID : {claims.ClaimId}\n" +
+                $"Claim Type : {claims.ClaimType}\n" +
+                $"Claim Description : {claims.ClaimDescription}\n" +
+                $"Claim Amounnt : {claims.ClaimAmount.ToString("C2")}\n" +
+                $"Date of Incident : {claims.DateOfIncident.ToString("MM/dd/yy")}\n" +
+                $"Date of Claim : {claims.DateOfClaim.ToString("MM/dd/yy")}\n" +
+                $"Claim Is Valid : {claims.IsValid}");
+
+            Console.WriteLine("Do you want to deal with this claim now? Type y/n");
+            string input = Console.ReadLine();
+
+            if (input == "y")
+            {
+                claimsQueue.Dequeue();
+            }
+            if (input == "n") // Need to set method to return to main menu 
+            {
+
+            }
+
+        }
+        //Enter the claim id: 4
+        //Enter the claim type: Car
+        //Enter a claim description: Wreck on I-70.
+        //Amount of Damage: $2000.00
+        //Date Of Accident: 4/27/18
+        //Date of Claim: 4/28/18
+        //This claim is valid.
+        public void EnterNewClaim()
+        {
+            ClaimsClass newClaim = new ClaimsClass();
+            Console.Clear();
+            
+            Console.WriteLine("Enter all following claim information. Press enter after each response.\n");
+
+            Console.WriteLine("Claim ID:");
+            string claimIdAsString = Console.ReadLine();
+            newClaim.ClaimId = int.Parse(claimIdAsString);
+            Console.Clear();
+
+            Console.WriteLine("Enter claim type from list below.\n");
+            Console.WriteLine("Car\n" +
+                "Home\n" +
+                "Theft\n");
+            newClaim.ClaimType = Console.ReadLine().ToLower();
+            Console.Clear();
+
+            Console.WriteLine("Enter claim description");
+            newClaim.ClaimDescription = Console.ReadLine();
+            Console.Clear();
+
+            Console.WriteLine("Enter claim amount");
+            newClaim.ClaimAmount = double.Parse(Console.ReadLine());
+            Console.Clear();
+
+            Console.WriteLine("Enter date of incident in the following format mm/dd/yy");
+            newClaim.DateOfIncident = DateTime.Parse(Console.ReadLine());
+            Console.Clear();
+
+            Console.WriteLine("Enter date of claim in following format mm/dd/yy");
+            newClaim.DateOfClaim = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("This claim is valid");
+            Console.Clear();
+
+            _claimsRepo.AddClaims(newClaim);
+        }
+               
 
         public void SeedClaimsList()
         {
@@ -108,8 +184,6 @@ namespace ClaimsConsole
             _claimsRepo.AddClaims(claim1);
             _claimsRepo.AddClaims(claim2);
             _claimsRepo.AddClaims(claim3);
-
-        
         }
 
     }

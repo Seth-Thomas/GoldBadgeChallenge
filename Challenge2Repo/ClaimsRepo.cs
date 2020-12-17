@@ -8,7 +8,7 @@ namespace Challenge2Repo
 {
     public class ClaimsRepo
     {
-        public Queue<ClaimsClass> _claimsQueue = new Queue<ClaimsClass>();
+        private Queue<ClaimsClass> _claimsQueue = new Queue<ClaimsClass>();
 
         public void AddClaims(ClaimsClass claim)
         {
