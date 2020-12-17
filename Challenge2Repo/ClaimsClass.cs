@@ -16,7 +16,6 @@ namespace Challenge2Repo
         {
             get; set;
         }
-
         public string ClaimDescription
         {
             get; set;
@@ -29,12 +28,10 @@ namespace Challenge2Repo
         {
             get; set;
         }
-
         public DateTime DateOfClaim
         {
             get; set;
         }
-
         public bool IsValid
         {
             get; set;
@@ -51,7 +48,6 @@ namespace Challenge2Repo
             DateOfIncident = dateOfIncident;
             DateOfClaim = dateOfClaim;
             IsValid = isValid;
-
         }
 
     }

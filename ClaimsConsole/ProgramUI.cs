@@ -6,42 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ClaimsConsole
-//    Show a claims agent a menu:
-//Choose a menu item:
-//1. See all claims
-//2. Take care of next claim
-//3. Enter a new claim
-//For #1, a claims agent could see all items in the queue listed out like this:
-
-//ClaimID Type    Description Amount  DateOfAccident DateOfClaim IsValid
-//1	Car Car accident on 465.	$400.00	4/25/18	4/27/18	true
-//2	Home House fire in kitchen.  $4000.00	4/11/18	4/12/18	true
-//3	Theft Stolen pancakes.    $4.00	4/27/18	6/01/18	false
-//For #2, when a claims agent needs to deal with an item they see the next item in the queue.
-
-//Here are the details for the next claim to be handled:
-//ClaimID: 1
-//Type: Car
-//Description: Car Accident on 464.
-//Amount: $400.00
-//DateOfAccident: 4/25/18
-//DateOfClaim: 4/27/18
-//IsValid: True
-//Do you want to deal with this claim now(y/n)? y
-//When the agent presses 'y', the claim will be pulled off the top of the queue. If the agent presses 'n', it will go back to the main menu.
-
-//For #3, when a claims agent enters new data about a claim they will be prompted for questions about it:
-
-//Enter the claim id: 4
-//Enter the claim type: Car
-//Enter a claim description: Wreck on I-70.
-//Amount of Damage: $2000.00
-//Date Of Accident: 4/27/18
-//Date of Claim: 4/28/18
-//This claim is valid.
-
 {
-    public class ProgramUI
+    class ProgramUI
     {
         private ClaimsRepo _claimsRepo = new ClaimsRepo();
 
@@ -50,7 +16,7 @@ namespace ClaimsConsole
             SeedClaimsList();
             Menu();
         }
-        public void Menu()
+        private void Menu()
         {
             bool keepRunning = true;
             while (keepRunning)
@@ -87,7 +53,7 @@ namespace ClaimsConsole
             }
 
         }
-        public void SeeAllClaims()
+        private void SeeAllClaims()
         {
             Console.Clear();
             Queue<ClaimsClass> claimsQueue = _claimsRepo.ViewClaimsQueue();
@@ -98,7 +64,7 @@ namespace ClaimsConsole
                 Console.WriteLine($"{claims.ClaimId,-10}{claims.ClaimType,-15}{claims.ClaimDescription,-25}{claims.ClaimAmount.ToString("C2"),-15}{claims.DateOfIncident.ToString("MM/dd/yy"),-20}{claims.DateOfClaim.ToString("MM/dd/yy"),-15}{claims.IsValid}");
             }
         }
-        public void TakeCareOfNextClaim()
+        private void TakeCareOfNextClaim()
         {
             Console.Clear();
 
@@ -121,25 +87,19 @@ namespace ClaimsConsole
             if (input == "y")
             {
                 claimsQueue.Dequeue();
+                Console.WriteLine("Claim has been dealt with");
             }
             if (input == "n") // Need to set method to return to main menu 
             {
-
+                Console.WriteLine("Press any key to return to main menu");
             }
 
         }
-        //Enter the claim id: 4
-        //Enter the claim type: Car
-        //Enter a claim description: Wreck on I-70.
-        //Amount of Damage: $2000.00
-        //Date Of Accident: 4/27/18
-        //Date of Claim: 4/28/18
-        //This claim is valid.
-        public void EnterNewClaim()
+        private void EnterNewClaim()
         {
             ClaimsClass newClaim = new ClaimsClass();
             Console.Clear();
-            
+
             Console.WriteLine("Enter all following claim information. Press enter after each response.\n");
 
             Console.WriteLine("Claim ID:");
@@ -151,7 +111,7 @@ namespace ClaimsConsole
             Console.WriteLine("Car\n" +
                 "Home\n" +
                 "Theft\n");
-            newClaim.ClaimType = Console.ReadLine().ToLower();
+            newClaim.ClaimType = Console.ReadLine();
             Console.Clear();
 
             Console.WriteLine("Enter claim description");
@@ -173,12 +133,10 @@ namespace ClaimsConsole
 
             _claimsRepo.AddClaims(newClaim);
         }
-               
-
-        public void SeedClaimsList()
+        private void SeedClaimsList()
         {
-            ClaimsClass claim1 = new ClaimsClass(1, "Car", "Fender bender", 200.00, new DateTime(2020,01,01), new DateTime(2020,02,03), false);
-            ClaimsClass claim2 = new ClaimsClass(2, "Theft", "Stolen necklace", 1500.00, new DateTime(2020,03,13), new DateTime (2020,03,14), true);
+            ClaimsClass claim1 = new ClaimsClass(1, "Car", "Fender bender", 200.00, new DateTime(2020, 01, 01), new DateTime(2020, 02, 03), false);
+            ClaimsClass claim2 = new ClaimsClass(2, "Theft", "Stolen necklace", 1500.00, new DateTime(2020, 03, 13), new DateTime(2020, 03, 14), true);
             ClaimsClass claim3 = new ClaimsClass(3, "Home", "Christmas tree fire", 2000.00, new DateTime(2020, 04, 05), new DateTime(2020, 04, 06), true);
 
             _claimsRepo.AddClaims(claim1);
