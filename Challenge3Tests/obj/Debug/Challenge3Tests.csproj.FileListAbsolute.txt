@@ -1,0 +1,16 @@
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Challenge3Tests.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Challenge3Tests.pdb
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Challenge3Repo.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Challenge3Repo.pdb
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\obj\Debug\Challenge3Tests.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\obj\Debug\Challenge3Tests.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\obj\Debug\Challenge3Tests.csproj.CopyComplete
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\obj\Debug\Challenge3Tests.dll
+C:\ElevenFiftyProjects\DotNetProjects\GoldBadgeChallenges\Challenge3Tests\obj\Debug\Challenge3Tests.pdb

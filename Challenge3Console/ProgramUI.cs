@@ -108,8 +108,8 @@ namespace Challenge3Console
         {
             List<string> doors = new List<string>();
 
-            BadgeClass badge1 = new BadgeClass(123, new List<string>() { "A1,B2,C3" });
-            BadgeClass badge2 = new BadgeClass(456, new List<string>() { "A1,B2" });
+            BadgeClass badge1 = new BadgeClass(123, new List<string>() { "A1","B2","C3" });
+            BadgeClass badge2 = new BadgeClass(456, new List<string>() { "A1","B2" });
             BadgeClass badge3 = new BadgeClass(789, new List<string>() { "C3" });
 
             _badges.AddNewBadge(badge1);
