@@ -92,16 +92,30 @@ namespace Challenge3Console
             _badges.DeleteDoorsOnExistingBadge(badgeId, access);
         }
         private void ListAllBadges()
+        
         {
+            Dictionary<int, List<string>> badges = _badges.GetBadgeList();
+            Console.WriteLine($"{"Badge #",-15}{"Door Access"}");
+
+            foreach (KeyValuePair<int, List<string>> badge in badges)
+            {
+                string doorAccess = string.Join(",", badge.Value);
+                Console.WriteLine($"{badge.Key,-15}{doorAccess}");
+            }
 
         }
         private void SeedBadgesList()
         {
             List<string> doors = new List<string>();
-            
-            BadgeClass badge1 = new BadgeClass(123, new List<string> ("A1,B2,C3"));
-            BadgeClass badge2 = new BadgeClass(456, new List<string>("A1,B2"));
-            BadgeClass badge  = new BadgeClass(789, new List<string>("C3"));
+
+            BadgeClass badge1 = new BadgeClass(123, new List<string>() { "A1,B2,C3" });
+            BadgeClass badge2 = new BadgeClass(456, new List<string>() { "A1,B2" });
+            BadgeClass badge3 = new BadgeClass(789, new List<string>() { "C3" });
+
+            _badges.AddNewBadge(badge1);
+            _badges.AddNewBadge(badge2);
+            _badges.AddNewBadge(badge3);
+
         }
-    }   
+    }
 }
