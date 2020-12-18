@@ -19,9 +19,9 @@ namespace Challenge2Repo
             return _claimsQueue;
         }
        
-        public void ViewSingleClaims()
+        public ClaimsClass ViewSingleClaims()
         {
-            ClaimsClass claim = _claimsQueue.Peek();
+            return _claimsQueue.Peek();
         }
 
         public void DeleteClaims()
