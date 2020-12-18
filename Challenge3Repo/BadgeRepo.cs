@@ -43,8 +43,6 @@ namespace Challenge3Repo
                 badgeDelete.Remove(door);
                 return true;
             }
-            //which badge and to which door
-            //need ID, door number
         }
 
         public Dictionary<int, List<string>> GetBadgeList()
@@ -63,10 +61,5 @@ namespace Challenge3Repo
             }
             return null;
         }
-       
-
-        
-        
-    
     }
 }

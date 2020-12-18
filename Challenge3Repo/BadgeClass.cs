@@ -15,6 +15,9 @@ namespace Challenge3Repo
         public List<string> Doors
         {
             get; set;
+        } = new List<string>();
+        public BadgeClass()
+        {
         }
         public BadgeClass(int badgeId, List<string> doors)
         {
